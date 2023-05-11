@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/habbit_tracker.css" />
+<!-- header -->
+<header>
+  <div class="logo">
+    <img src="/images/logo.png" alt="Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#addhabbit">Add habbit</a></li>
+      <li><a href="/profile">profile</a></li>
+      <li><a href="/signout">signout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="addhabbit">
+  <a href="#"><i class="uil uil-times form_close"></i></a>
+  <h2>ADD HABBIT</h2>
+  <div class="box">
+    <form action="/habbit/create" method="post">
+      <label for="habit-name" class="text">Habit Name:</label>
+      <input type="text" id="habit-name" name="content">
+      <button type="submit">Add Habit</button>
+    </form>
+  </div>
+</div>
+</div>
+
+  <section class="habbit-box">
+    
+    <%for(post of habbit){%>
+      <%if( locals.user.id===post.user.id)
+      {%>
+        <%-include('post');%>
+      <%}%>
+    <%}%>
+
+  </section>
+  <script src="/js/habbitscript.js"></script>

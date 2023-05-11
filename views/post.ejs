@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="/css/habbit_post_box.css" />
+<div id="habbit_post_box">
+  <h1><%=post.content%></h1>
+  <div class="box">
+    <a href="#numberofdayshabbit-<%=post._id%>"> <button class="button">days</button></a>
+
+    <a href="/habbit/destroy/<%=post.id%>" class="delete-post-button">
+      <button class="button">habbit DELETE</button></a
+    >
+
+    <a href="#updatename-<%=post._id%>">
+      <button class="button">habbit name update</button></a
+    >
+  </div>
+  <div id="calendar">
+    <div class="days">
+     
+        <div class="day"><%=post.createdAt.toDateString()%></div>
+        <%for(let i=1;i<7;i++)
+        {%>
+    <% const newDate = new Date(post.createdAt); %>
+    <% newDate.setDate(newDate.getDate() + i); %>
+    <div class="day"><%=newDate.toDateString()%></div>
+      <%}%>
+
+    </div>
+    <div class="days">
+      
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[0]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="0"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="0" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[1]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="1"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="1" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[2]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="2"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="2" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[3]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="3"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="3" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[4]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="4"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="4" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[5]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="5"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="5" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+
+      <div class="day">
+        <form action="/habbit/submit-form" method="post">
+          <input type="hidden" name="post" value="<%=post.id%>"/>
+          <%if(post.tiks[6]===0)
+          {%>
+            <button class="habbitcheck orange" type="submit" name="button" value="6"><span style="font-size: 30px;">&#10060;</span></button>
+          <%}
+          else
+          {%>
+            <button class="habbitcheck blue" type="submit" name="button" value="6" ><span style="font-size: 30px;">&check;</span></button>
+          <%}%>
+        </form>
+      </div>
+      
+      
+     
+    </div>
+  </div>
+  <!-- number od days in haabit follow -->
+  <div id="numberofdayshabbit-<%=post._id%>" class="numberofdayshabbit">
+    <a href="#"><i class="uil uil-times form_close"></i></a>
+    <h2>numver of days habbit follow  and unfollow  <br>'<%=post.numberofday%> days'</h2>
+  </div>
+  <!-- post name update -->
+  <div id="updatename-<%=post._id%>" class="updatename">
+    <a href="#"><i class="uil uil-times form_close"></i></a>
+    <h2>update name</h2>
+    <div class="box">
+      <form action="/habbit/updatename" method="post">
+        <input type="text" placeholder="Enter your name" name="content" />
+        <input type="hidden" name="post" value="<%=post.id%>" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- habbit calender -->
