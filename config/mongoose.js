@@ -1,5 +1,6 @@
+require('dotenv').config();
 const mongose=require('mongoose');
-mongose.connect(`mongodb://0.0.0.0/backendprojectin_habbittracker_db154545454dsd`);
+mongose.connect(process.env.MONGO_URI);
 const db=mongose.connection;
 db.on('error',console.error.bind(console,"errror conected to db"));
 db.once('open',function()

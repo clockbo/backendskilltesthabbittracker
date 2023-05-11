@@ -28,10 +28,7 @@ module.exports.destroy= async function(req,res)
     try
     {
         let post= await Post.findById(req.params.id);
-        
-
                 post.remove();
-                
                 req.flash('success','habbit is  delete successfuly');
                 return res.redirect('back');
             
