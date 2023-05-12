@@ -180,7 +180,7 @@ const sendResetPasswordMail = async (email, token) => {
       from: "sagar.ktech@gmail.com",
       to: email,
       subject: "for reset password",
-      html: '<p>hi, please click here to <a href="http://127.0.0.1:9999/forget-password?token='+token+'">reset </a>your password',
+      html: '<p>hi, please click here to <a href="https://habbittracker123.up.railway.app/forget-password?token='+token+'">reset </a>your password',
     };
     transporter.sendMail(mailOptions, function (err, info) {
       if (err) {
