@@ -1,6 +1,7 @@
 # habbit tracker
 
-explore this site : https://habbittracker123.up.railway.app/
+explore this site :
+https://tiny-cyan-caterpillar-sock.cyclic.app
 
 
 
